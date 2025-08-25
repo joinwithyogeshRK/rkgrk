@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Green Scale - Main brand color */
+  --primary-50: #f0fdf4;
+  --primary-100: #dcfce7;
+  --primary-200: #bbf7d0;
+  --primary-300: #86efac;
+  --primary-400: #4ade80;
+  --primary-500: #22c55e;
+  --primary-600: #16a34a;
+  --primary-700: #15803d;
+  --primary-800: #166534;
+  --primary-900: #14532d;
+  --primary-950: #052e16;
+  
+  /* Secondary Gray Scale - Neutral colors */
+  --secondary-50: #f8fafc;
+  --secondary-100: #f1f5f9;
+  --secondary-200: #e2e8f0;
+  --secondary-300: #cbd5e1;
+  --secondary-400: #94a3b8;
+  --secondary-500: #64748b;
+  --secondary-600: #475569;
+  --secondary-700: #334155;
+  --secondary-800: #1e293b;
+  --secondary-900: #0f172a;
+  --secondary-950: #020617;
+  
+  /* Accent Colors - For highlights and interactions */
+  --accent-50: #f0fdf4;
+  --accent-100: #dcfce7;
+  --accent-200: #bbf7d0;
+  --accent-300: #86efac;
+  --accent-400: #4ade80;
+  --accent-500: #22c55e;
+  --accent-600: #16a34a;
+  --accent-700: #15803d;
+  --accent-800: #166534;
+  --accent-900: #14532d;
+  --accent-950: #052e16;
+  
+  /* Success Green Scale - For completed tasks */
+  --success-50: #f0fdf4;
+  --success-100: #dcfce7;
+  --success-200: #bbf7d0;
+  --success-300: #86efac;
+  --success-400: #4ade80;
+  --success-500: #22c55e;
+  --success-600: #16a34a;
+  --success-700: #15803d;
+  --success-800: #166534;
+  --success-900: #14532d;
+  --success-950: #052e16;
+}
+
+/* Base styles */
+body {
+  @apply bg-primary-50 text-secondary-900 font-sans;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Component styles */
+.sidebar {
+  @apply bg-white border-r border-secondary-200 shadow-sm;
+  backdrop-filter: blur(10px);
+}
+
+.task-card {
+  @apply bg-white rounded-lg border border-secondary-200 shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.task-card:hover {
+  @apply border-primary-200;
+}
+
+.task-card.completed {
+  @apply bg-success-50 border-success-200;
+}
+
+.btn-primary {
+  @apply bg-primary-600 text-white px-4 py-2 rounded-md font-medium hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors duration-200;
+}
+
+.btn-secondary {
+  @apply bg-secondary-100 text-secondary-700 px-4 py-2 rounded-md font-medium hover:bg-secondary-200 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 transition-colors duration-200;
+}
+
+.input-field {
+  @apply w-full px-3 py-2 border border-secondary-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+}
+
+.input-field:focus {
+  @apply border-primary-500 shadow-sm;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.neumorphic {
+  background: #f0f0f0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  border-radius: 12px;
+}
+
+.neumorphic-inset {
+  background: #f0f0f0;
+  box-shadow: inset 20px 20px 60px #bebebe, inset -20px -20px 60px #ffffff;
+  border-radius: 12px;
+}
+
+/* Priority indicators */
+.priority-high {
+  @apply border-l-4 border-red-500;
+}
+
+.priority-medium {
+  @apply border-l-4 border-amber-500;
+}
+
+.priority-low {
+  @apply border-l-4 border-green-500;
+}
+
+/* Category tags */
+.category-tag {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800;
+}
+
+/* Progress indicators */
+.progress-bar {
+  @apply w-full bg-secondary-200 rounded-full h-2;
+}
+
+.progress-fill {
+  @apply bg-primary-600 h-2 rounded-full transition-all duration-300;
+}
+
+/* Search and filter styles */
+.search-bar {
+  @apply relative;
+}
+
+.filter-chip {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary-100 text-secondary-700 hover:bg-secondary-200 cursor-pointer transition-colors duration-200;
+}
+
+.filter-chip.active {
+  @apply bg-primary-600 text-white;
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-secondary-100;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-secondary-300 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary-400;
+}
